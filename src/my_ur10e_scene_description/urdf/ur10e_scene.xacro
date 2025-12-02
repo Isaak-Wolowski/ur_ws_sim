@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur10e_scene">
+
+  <!-- Include the UR macro definition -->
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+
+  <!-- ===== Arguments ===== -->
+  <xacro:arg name="tf_prefix" default=""/>
+  <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="fake_sensor_commands" default="false"/>
+  <xacro:arg name="sim_gazebo" default="false"/>
+  <xacro:arg name="sim_ignition" default="false"/>
+  <xacro:arg name="headless_mode" default="false"/>
+  <xacro:arg name="robot_ip" default="0.0.0.0"/>
+
+  <!-- UR10e parameter files -->
+  <xacro:arg name="joint_limit_params"
+             default="$(find ur_description)/config/ur10e/joint_limits.yaml"/>
+  <xacro:arg name="kinematics_params"
+             default="$(find ur_description)/config/ur10e/default_kinematics.yaml"/>
+  <xacro:arg name="physical_params"
+             default="$(find ur_description)/config/ur10e/physical_parameters.yaml"/>
+  <xacro:arg name="visual_params"
+             default="$(find ur_description)/config/ur10e/visual_parameters.yaml"/>
+
+  <!-- ===== World frame ===== -->
+  <link name="world"/>
+
+  <!-- ===== UR10e robot instance ===== -->
+  <xacro:ur_robot
+      name="ur10e"
+      tf_prefix="$(arg tf_prefix)"
+      parent="world"
+      joint_limits_parameters_file="$(arg joint_limit_params)"
+      kinematics_parameters_file="$(arg kinematics_params)"
+      physical_parameters_file="$(arg physical_params)"
+      visual_parameters_file="$(arg visual_params)"
+      generate_ros2_control_tag="true"
+      use_fake_hardware="$(arg use_fake_hardware)"
+      fake_sensor_commands="$(arg fake_sensor_commands)"
+      sim_gazebo="$(arg sim_gazebo)"
+      sim_ignition ="$(arg sim_ignition)"
+      headless_mode="$(arg headless_mode)"
+      robot_ip="$(arg robot_ip)">
+    <!-- origin for the robot base in world -->
+    <origin xyz="0.42 0 0.868" rpy="0 0 ${pi}"/>
+  </xacro:ur_robot>
+
+  <!-- ================== STATIC SCENE OBJECTS ================== -->
+
+  <!-- Cart frame -->
+  <joint name="cart_joint" type="fixed">
+    <parent link="world"/>
+    <child link="cart_link"/>
+    <origin xyz="0.845 0 0.0" rpy="0 0 ${pi}"/>
+  </joint>
+
+  <link name="cart_link">
+    <visual>
+      <!-- cart mesh in the cart_link frame -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_ur10e_scene_description/meshes/robot_table.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <!-- you can simplify later if collisions are too heavy -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_ur10e_scene_description/meshes/robot_table.dae"
+              scale="1 1 1"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+  </link>
+
+
+  <!-- Table on cart -->
+  <!-- Table frame on top of the cart (no visual mesh) -->
+  <joint name="table_joint" type="fixed">
+    <parent link="cart_link"/>
+    <child link="table_link"/>
+    <origin xyz="0.42 0 0.87" rpy="0 0 0"/>
+  </joint>
+
+  <link name="table_link">
+    <!-- Optional: collision or just a pure frame -->
+    <!--
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.8 0.6 0.02"/>
+      </geometry>
+    </collision>
+    -->
+  </link>
+
+
+
+  <!-- Checkerboard in world -->
+  <joint name="checkerboard_joint" type="fixed">
+    <parent link="world"/>
+    <child link="checkerboard_link"/>
+    <origin xyz="1.17 0.05 0.858" rpy="0 0 ${pi/2}"/>
+  </joint>
+
+  <link name="checkerboard_link">
+    <visual>
+      <!-- pose of the mesh in the checkerboard_link frame -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_ur10e_scene_description/meshes/chessboard.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <!-- you can switch back to a simple box later if you prefer -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_ur10e_scene_description/meshes/chessboard.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+  </link>
+
+
+  <!-- Camera mount on tool0 -->
+  <joint name="camera_mount_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="camera_mount_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="camera_mount_link"/>
+
+  <!-- Camera itself -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="camera_mount_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0 0.063 0.097" rpy="0 0 ${pi}"/>
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- Placeholder volume for the camera -->
+        <box size="0.05 0.02 0.02"/>
+      </geometry>
+      <material name="camera_grey">
+        <color rgba="0.7 0.7 0.7 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.05 0.02 0.02"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+</robot>

@@ -1,0 +1,121 @@
+method: Tsai
+camera_name: realsense
+run_id: run_001
+
+used_images:
+  - img_0000_pose_0000.png
+  - img_0001_pose_0001.png
+  - img_0002_pose_0002.png
+  - img_0003_pose_0003.png
+  - img_0004_pose_0004.png
+  - img_0005_pose_0005.png
+  - img_0006_pose_0006.png
+  - img_0007_pose_0007.png
+  - img_0008_pose_0008.png
+  - img_0009_pose_0009.png
+  - img_0010_pose_0010.png
+  - img_0011_pose_0011.png
+  - img_0012_pose_0012.png
+  - img_0013_pose_0013.png
+  - img_0014_pose_0014.png
+  - img_0015_pose_0015.png
+  - img_0016_pose_0016.png
+  - img_0017_pose_0017.png
+  - img_0018_pose_0018.png
+  - img_0019_pose_0019.png
+  - img_0020_pose_0020.png
+  - img_0021_pose_0021.png
+  - img_0022_pose_0022.png
+  - img_0023_pose_0023.png
+  - img_0024_pose_0024.png
+  - img_0025_pose_0025.png
+  - img_0026_pose_0026.png
+  - img_0027_pose_0027.png
+  - img_0028_pose_0028.png
+  - img_0029_pose_0029.png
+  - img_0030_pose_0030.png
+  - img_0031_pose_0031.png
+  - img_0032_pose_0032.png
+  - img_0033_pose_0033.png
+  - img_0034_pose_0034.png
+  - img_0035_pose_0035.png
+  - img_0036_pose_0036.png
+  - img_0037_pose_0037.png
+  - img_0038_pose_0038.png
+  - img_0039_pose_0039.png
+  - img_0040_pose_0040.png
+  - img_0041_pose_0041.png
+  - img_0042_pose_0042.png
+  - img_0043_pose_0043.png
+  - img_0044_pose_0044.png
+  - img_0045_pose_0045.png
+  - img_0046_pose_0046.png
+  - img_0047_pose_0047.png
+  - img_0048_pose_0048.png
+  - img_0049_pose_0049.png
+  - img_0050_pose_0050.png
+  - img_0051_pose_0051.png
+  - img_0052_pose_0052.png
+  - img_0053_pose_0053.png
+  - img_0054_pose_0054.png
+  - img_0055_pose_0055.png
+  - img_0056_pose_0056.png
+  - img_0057_pose_0057.png
+  - img_0058_pose_0058.png
+  - img_0059_pose_0059.png
+  - img_0060_pose_0060.png
+  - img_0061_pose_0061.png
+  - img_0062_pose_0062.png
+  - img_0063_pose_0063.png
+  - img_0064_pose_0064.png
+  - img_0065_pose_0065.png
+  - img_0066_pose_0066.png
+  - img_0067_pose_0067.png
+  - img_0068_pose_0068.png
+  - img_0069_pose_0069.png
+  - img_0070_pose_0070.png
+  - img_0071_pose_0071.png
+  - img_0072_pose_0072.png
+  - img_0073_pose_0073.png
+  - img_0074_pose_0074.png
+  - img_0075_pose_0075.png
+  - img_0076_pose_0076.png
+  - img_0077_pose_0077.png
+  - img_0078_pose_0078.png
+  - img_0079_pose_0079.png
+  - img_0080_pose_0080.png
+  - img_0081_pose_0081.png
+  - img_0082_pose_0082.png
+  - img_0083_pose_0083.png
+  - img_0084_pose_0084.png
+  - img_0085_pose_0085.png
+  - img_0086_pose_0086.png
+  - img_0087_pose_0087.png
+  - img_0088_pose_0088.png
+  - img_0091_pose_0091.png
+  - img_0092_pose_0092.png
+  - img_0093_pose_0093.png
+  - img_0094_pose_0094.png
+  - img_0095_pose_0095.png
+  - img_0096_pose_0096.png
+  - img_0097_pose_0097.png
+  - img_0098_pose_0098.png
+  - img_0099_pose_0099.png
+
+T_cam2ee:
+  - [0.994161, 0.038657, 0.100741, 0.102431]
+  - [-0.041075, 0.998913, 0.022033, -0.078422]
+  - [-0.099780, -0.026043, 0.994669, 0.043866]
+  - [0.000000, 0.000000, 0.000000, 1.000000]
+
+T_base2cam:
+  - [0.041051, -0.998914, -0.022050, 1.245252]
+  - [-0.994163, -0.038633, -0.100730, -0.048614]
+  - [0.099768, 0.026057, -0.994669, 1.361690]
+  - [0.000000, 0.000000, 0.000000, 1.000000]
+
+T_cam2base:
+  - [0.041051, -0.994163, 0.099768, -0.235303]
+  - [-0.998914, -0.038633, 0.026057, 1.206541]
+  - [-0.022050, -0.100730, -0.994669, 1.376993]
+  - [0.000000, 0.000000, 0.000000, 1.000000]

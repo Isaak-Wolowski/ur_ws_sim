@@ -1,0 +1,11 @@
+trajectory_execution:
+  moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+  # how much longer than the expected duration we allow the controller to run
+  allowed_execution_duration_scaling: 3.0
+  allowed_goal_duration_margin: 1.0
+  allowed_start_tolerance: 0.05
+
+  # while debugging, you can even turn monitoring off:
+  execution_duration_monitoring: false
+

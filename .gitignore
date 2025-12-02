@@ -1,0 +1,21 @@
+# ROS 2 / colcon build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Editor / IDE noise
+.vscode/
+.idea/
+*.swp
+
+# OS junk
+.DS_Store
+
+# Local Docker snapshot (distributed by USB, not via Git)
+ur_env_snapshot.tar

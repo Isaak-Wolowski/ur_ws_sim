@@ -1,0 +1,24 @@
+<package format="3">
+  <name>hemi_motion_rs</name>
+  <version>0.0.0</version>
+  <description>Hemisphere motion with RealSense image capture</description>
+
+  <maintainer email="wolowskiisaak@outlook.com">You</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>moveit_ros_planning_interface</depend>
+
+  <exec_depend>opencv4</exec_depend>
+
+  <export>
+  </export>
+</package>
+

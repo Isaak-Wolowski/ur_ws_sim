@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: my_ur10e_scene_description
+    relative_path: urdf/ur10e_scene.xacro
+  srdf:
+    relative_path: config/ur10e_scene.srdf
+  package_settings:
+    author_name: Wolowski
+    author_email: wolowskiisaak@outlook.com
+    generated_timestamp: 1763742629
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
