@@ -16,7 +16,7 @@ The full software environment (ROS 2, UR drivers, RealSense SDK, Python stack, e
     thws_multi_calibration.tar
 
 This tar file is **not in the GitHub repo** (too large).  
-It will be distributed via USB or shared storage.
+It will be distributed via USB or shared storage by Wolowski
 
 --------------------------------------------------------------------------------
 ## 1. Repository Structure
@@ -417,7 +417,7 @@ GUI developers should treat these scripts as reference implementations and/or ca
 --------------------------------------------------------------------------------
 ## 12. Credits
 
-This workspace is developed within the THWS Robotics Project by students and staff.
+This workspace is developed within the THWS Robotics Project by Isaak Wolowski, Benoy Sharry, Jenit Goti, Ibrahim Mohamed and Nikhil Joshy supervised by Dr. Iorpenda Mseuga
 
 - Base ROS 2 and UR driver setup
 - RealSense integration
